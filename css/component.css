@@ -45,6 +45,13 @@ a:hover {
 
 .container { height: 100%; }
 
+.screen-shade {
+	height: 100%;
+	background-color: #BAFF02;
+	opacity: 50%;
+
+}
+
 .bl-main {
 	position: absolute;
 	width: 100%;
