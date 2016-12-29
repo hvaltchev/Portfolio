@@ -56,7 +56,7 @@ var Boxlayout = (function() {
 					$el.addClass( 'bl-expand-item' );
 				}
 
-			} ).find( 'span.bl-icon-close' ).on( 'click', function() {
+			} ).find( 'span.bl-icon-close' ).on( 'click' && 'e.keyCode === 27', function() {
 
 				// close the expanded section and scale up the others
 				$section.data( 'open', false ).removeClass( 'bl-expand' ).on( transEndEventName, function( event ) {
@@ -123,7 +123,7 @@ var Boxlayout = (function() {
 		} );
 
 		// clicking the work panels close button: the current work panel slides down and the section scales up again
-		$closeWorkItem.on( 'click' && e.keyCode === 27, function( event ) {
+		$closeWorkItem.on( 'click', function( event ) {
 
 			// scale up main section
 			$sectionWork.removeClass( 'bl-scale-down' );
