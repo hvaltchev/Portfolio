@@ -38,10 +38,6 @@ var Boxlayout = (function() {
 		// support css transitions
 		supportTransitions = Modernizr.csstransitions;
 
-		$(document).keyup(function(e) {
- 			if (e.keyCode === 27) $('.cancel').click();   // esc
-		});
-
 	function init() {
 		initEvents();
 	}
@@ -127,7 +123,7 @@ var Boxlayout = (function() {
 		} );
 
 		// clicking the work panels close button: the current work panel slides down and the section scales up again
-		$closeWorkItem.on( 'click', function( event ) {
+		$closeWorkItem.on( 'click' && e.keyCode === 27, function( event ) {
 
 			// scale up main section
 			$sectionWork.removeClass( 'bl-scale-down' );
