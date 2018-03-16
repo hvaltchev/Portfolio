@@ -27,6 +27,8 @@ body {
     background: #333;
     font-size: 0.9em;
     font-weight: 300;
+		overflow: hidden;
+		position: fixed;
 }
 
 a {
