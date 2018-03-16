@@ -38,6 +38,11 @@ var Boxlayout = (function() {
 		// support css transitions
 		supportTransitions = Modernizr.csstransitions;
 
+		// Disable scrolling.
+	document.ontouchmove = function (e) {
+  	e.preventDefault();
+	}
+
 	function init() {
 		initEvents();
 	}
