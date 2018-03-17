@@ -139,7 +139,7 @@ var Boxlayout = (function() {
 
 		} );
 
-		$closeWorkItem.on( 'keydown', function( event ) {
+		$closeWorkItemEsc.on( 'keydown', function( event ) {
 			// scale up main section
 			if (event.keyCode == 27) {
 				$sectionWork.removeClass( 'bl-scale-down' );
