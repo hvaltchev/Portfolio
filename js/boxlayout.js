@@ -38,9 +38,9 @@ var Boxlayout = (function() {
 		// support css transitions
 		supportTransitions = Modernizr.csstransitions;
 
-		// Disable scrolling.
+	// Disable scrolling.
 	document.ontouchmove = function (e) {
-  	e.preventDefault();
+		e.preventDefault();
 	}
 
 	function init() {
@@ -137,6 +137,16 @@ var Boxlayout = (function() {
 
 			return false;
 
+		} );
+
+		$closeWorkItem.on( 'keydown', function( event ) {
+			// scale up main section
+			if (e.keyCode == 27) {
+				$sectionWork.removeClass( 'bl-scale-down' );
+				$workPanelsContainer.removeClass( 'bl-panel-items-show' );
+				$workPanels.eq( currentWorkPanel ).removeClass( 'bl-show-work' );
+				return false;
+			}
 		} );
 
 	}
