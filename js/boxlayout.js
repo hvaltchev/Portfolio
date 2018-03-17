@@ -142,6 +142,7 @@ var Boxlayout = (function() {
 		$closeWorkItemEsc.on( 'keydown', function( event ) {
 			// scale up main section
 			if (event.keyCode == 27) {
+				console.log("ESC");
 				$sectionWork.removeClass( 'bl-scale-down' );
 				$workPanelsContainer.removeClass( 'bl-panel-items-show' );
 				$workPanels.eq( currentWorkPanel ).removeClass( 'bl-show-work' );
