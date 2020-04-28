@@ -26,6 +26,7 @@ var Boxlayout = (function() {
 		isAnimating = false,
 		// close work panel trigger
 		$closeWorkItem = $workPanelsContainer.find( 'nav > span.bl-icon-close' ),
+		$closeWorkItemKey = $workPanelsContainer.find( 'nav > span.bl-icon-close' ),
 		transEndEventNames = {
 			'WebkitTransition' : 'webkitTransitionEnd',
 			'MozTransition' : 'transitionend',
@@ -47,6 +48,14 @@ var Boxlayout = (function() {
 		initEvents();
 	}
 
+	var $section = $( this );
+	$(document).on('keydown', function() {
+		if (event.key == "Escape") {
+			console.log('Pressed')
+			
+		}
+	})
+
 	function initEvents() {
 
 		$sections.each( function() {
@@ -55,14 +64,12 @@ var Boxlayout = (function() {
 
 			// expand the clicked section and scale down the others
 			$section.on( 'click', function() {
-
 				if( !$section.data( 'open' ) ) {
 					$section.data( 'open', true ).addClass( 'bl-expand bl-expand-top' );
 					$el.addClass( 'bl-expand-item' );
 				}
-
 			} ).find( 'span.bl-icon-close' ).on( 'click', function() {
-
+				console.log('Pressed')
 				// close the expanded section and scale up the others
 				$section.data( 'open', false ).removeClass( 'bl-expand' ).on( transEndEventName, function( event ) {
 					if( !$( event.target ).is( 'section' ) ) return false;
@@ -74,11 +81,10 @@ var Boxlayout = (function() {
 				}
 
 				$el.removeClass( 'bl-expand-item' );
-
 				return false;
 
 			} );
-
+		
 		} );
 
 		// clicking on a work item: the current section scales down and the respective work panel slides up
@@ -115,41 +121,29 @@ var Boxlayout = (function() {
 				$( this ).off( transEndEventName ).removeClass( 'bl-hide-current-work' );
 				isAnimating = false;
 			} );
-
 			if( !supportTransitions ) {
 				$currentPanel.removeClass( 'bl-hide-current-work' );
 				isAnimating = false;
 			}
-
 			$nextPanel.addClass( 'bl-show-work' );
-
 			return false;
-
 		} );
 
 		// clicking the work panels close button: the current work panel slides down and the section scales up again
 		$closeWorkItem.on( 'click', function( event ) {
-
 			// scale up main section
 			$sectionWork.removeClass( 'bl-scale-down' );
 			$workPanelsContainer.removeClass( 'bl-panel-items-show' );
 			$workPanels.eq( currentWorkPanel ).removeClass( 'bl-show-work' );
-
 			return false;
-
 		} );
 
-		$closeWorkItemEsc.on( 'keydown', function( event ) {
+		$closeWorkItemKey.on( 'click', function( event ) {
 			// scale up main section
 			if (event.keyCode == 27) {
-				console.log("ESC");
-				$sectionWork.removeClass( 'bl-scale-down' );
-				$workPanelsContainer.removeClass( 'bl-panel-items-show' );
-				$workPanels.eq( currentWorkPanel ).removeClass( 'bl-show-work' );
-				return false;
+				print('Esc key pressed.');
 			}
 		} );
-
 	}
 
 	return { init : init };
