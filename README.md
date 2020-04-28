@@ -1,1 +1,1 @@
-Front end practice - Creating a simple portfolio.
+Hristo Valtchev Portfolio Rebuild 2020
