@@ -48,11 +48,11 @@ var Boxlayout = (function() {
 		initEvents();
 	}
 	
-	$(document).on('keydown', function() {
-		if (event.key == "Escape") {
-			console.log('Pressed')			
-		}
-	})
+	// $(document).on('keydown', function() {
+	// 	if (event.key == "Escape") {
+	// 		console.log('Pressed')			
+	// 	}
+	// })
 
 	function initEvents() {
 
@@ -67,7 +67,6 @@ var Boxlayout = (function() {
 					$el.addClass( 'bl-expand-item' );
 				}
 			} ).find( 'span.bl-icon-close' ).on( 'click', function() {
-				console.log('Pressed')
 				// close the expanded section and scale up the others
 				$section.data( 'open', false ).removeClass( 'bl-expand' ).on( transEndEventName, function( event ) {
 					if( !$( event.target ).is( 'section' ) ) return false;
@@ -134,13 +133,6 @@ var Boxlayout = (function() {
 			$workPanelsContainer.removeClass( 'bl-panel-items-show' );
 			$workPanels.eq( currentWorkPanel ).removeClass( 'bl-show-work' );
 			return false;
-		} );
-
-		$closeWorkItemKey.on( 'click', function( event ) {
-			// scale up main section
-			if (event.keyCode == 27) {
-				print('Esc key pressed.');
-			}
 		} );
 	}
 
