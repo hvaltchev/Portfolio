@@ -47,12 +47,10 @@ var Boxlayout = (function() {
 	function init() {
 		initEvents();
 	}
-
-	var $section = $( this );
+	
 	$(document).on('keydown', function() {
 		if (event.key == "Escape") {
-			console.log('Pressed')
-			
+			console.log('Pressed')			
 		}
 	})
 
